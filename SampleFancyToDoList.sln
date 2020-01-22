@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleFancyToDoList.Domain", "SampleFancyToDoList.Domain\SampleFancyToDoList.Domain.csproj", "{B871852D-1417-4BD0-B81E-C2B269EFCCE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleFancyToDoList.Domain", "SampleFancyToDoList.Domain\SampleFancyToDoList.Domain.csproj", "{B871852D-1417-4BD0-B81E-C2B269EFCCE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleFancyToDoList.UnitTests", "SampleFancyToDoList.UnitTests\SampleFancyToDoList.UnitTests.csproj", "{C4CEE44B-2577-4129-8EC1-BC2CDCF03599}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleFancyToDoList.UnitTests", "SampleFancyToDoList.UnitTests\SampleFancyToDoList.UnitTests.csproj", "{C4CEE44B-2577-4129-8EC1-BC2CDCF03599}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
