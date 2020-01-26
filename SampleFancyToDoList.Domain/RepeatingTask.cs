@@ -4,9 +4,8 @@ using System.Text;
 
 namespace SampleFancyToDoList.Domain
 {
-    public class ToDoListItem
+    public class RepeatingTask
     {
-
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -14,6 +13,9 @@ namespace SampleFancyToDoList.Domain
         public DateTime DueDate { get; set; }
 
         public bool IsCompleted { get; set; }
+
+        public bool IsReOccuring { get; set; }
+
 
 
 
