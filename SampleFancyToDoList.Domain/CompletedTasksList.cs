@@ -14,12 +14,7 @@ namespace SampleFancyToDoList.Domain
             tasks = new List<ToDoListItem>();
 
         }
-        //public void Add(ToDoListItem toDoListItem)
-        //{
-        //    ToDoList toDoList = new ToDoList();
-        //    toDoList.AddItem(toDoListItem);
-
-        //}
+      
 
         //Add item to completed item list
         public void AddToCompleted(ToDoListItem toDoListItem)
@@ -51,15 +46,10 @@ namespace SampleFancyToDoList.Domain
 
             if (repeatingTask.EndTime >= DateTime.Now)
             {
-
                 tasks.Remove(toDoListItem);//task remove from completed
                 ToDoList toDoList = new ToDoList();
                 toDoList.AddItem(toDoListItem);//added to todo list again for next routine
-
-
             }
-
-
 
         }
 
