@@ -4,17 +4,12 @@ using System.Text;
 
 namespace SampleFancyToDoList.Domain
 {
-    public class RepeatingTask
+    public class RepeatingTask : ToDoListItem
     {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public DateTime DueDate { get; set; }
-
-        public bool IsCompleted { get; set; }
-
+        
+        public DateTime EndTime { get; set; }
         public bool IsReOccuring { get; set; }
+
 
 
 
