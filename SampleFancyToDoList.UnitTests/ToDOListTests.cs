@@ -53,7 +53,7 @@ namespace SampleFancyToDoList.UnitTests
 
             var result = toDoList.GetAllTasks().Count();
 
-            Assert.True(result == 0);
+            Assert.True(result == 1);
 
         }
 
@@ -64,7 +64,15 @@ namespace SampleFancyToDoList.UnitTests
 
             ToDoListItem toDoListItem = new ToDoListItem();
 
-            toDoList.AddReOccuringTask(toDoListItem);
+            RepeatingTask repeatingTask = new RepeatingTask();
+
+            repeatingTask.IsReOccuring = true;
+
+            toDoList.AddReOccuringTask(toDoListItem,repeatingTask);
+
+            var result = toDoList.GetAllTasks().Count();
+
+            Assert.True(result == 1);
 
         }
 
@@ -75,9 +83,44 @@ namespace SampleFancyToDoList.UnitTests
 
             ToDoListItem toDoListItem = new ToDoListItem();
 
+            toDoListItem.IsCompleted = true;
+
             completedTasksList.AddToCompleted(toDoListItem);
 
+            var result = completedTasksList.GetAllCompleted();
+            
+            var expect = result.ElementAt(0);
+
+            Assert.Equal(toDoListItem, expect);
+
         }
+
+        [Fact]
+        public void RepeatCompleted()
+        {
+            RepeatingTask repeatingTask = new RepeatingTask();
+
+            ToDoListItem toDoListItem = new ToDoListItem();
+
+            CompletedTasksList completedTasksList = new CompletedTasksList();
+
+            toDoListItem.IsCompleted = true;
+
+            repeatingTask.EndTime = DateTime.Today.AddDays(+2);
+
+            completedTasksList.RepeatCompleted(toDoListItem,repeatingTask);
+
+            var result = completedTasksList.GetAllCompleted().Count();
+
+            Assert.False(result == 0);
+
+
+            
+
+           
+
+        }
+
 
     }
 }

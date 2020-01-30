@@ -33,7 +33,7 @@ namespace SampleFancyToDoList.Domain
         }
 
         //add an repeating task as completed
-        public void RepeatCompleted(ToDoListItem toDoListItem)
+        public void RepeatCompleted(ToDoListItem toDoListItem ,RepeatingTask repeatingTask)
         {
             if (toDoListItem is null)
             {
@@ -44,7 +44,7 @@ namespace SampleFancyToDoList.Domain
             {
                 tasks.Add(toDoListItem);
             }
-            RepeatingTask repeatingTask = new RepeatingTask();
+            
 
             if (repeatingTask.EndTime <= DateTime.Now)
             {
@@ -92,7 +92,30 @@ namespace SampleFancyToDoList.Domain
 
         }
 
+        //Add a task  as Completed Task which has sub tasks
+        public void CompleteSubTask(ToDoListItem toDoListItem,SubTaskToDoList subTaskTo)
+        {
+            if (toDoListItem is null)
+            {
+                throw new ArgumentNullException(nameof(toDoListItem));
+            }
 
+            if (toDoListItem.IsCompleted == true & subTaskTo.HasSubTask == false)
+            {
+                tasks.Add(toDoListItem);
+            }
+
+            if(subTaskTo.HasSubTask ==true)
+            {
+                foreach(var item in subTaskTo.GetAllSubTasks())
+                {
+                    if(item.IsCompleted == true)
+                    {
+                        tasks.Add(subTaskTo);//if every sub task items completed only main task consider as completed task
+                    }
+                }
+            }
+        }
 
     }
 }

@@ -11,8 +11,5 @@ namespace SampleFancyToDoList.Domain
         public bool IsReOccuring { get; set; }
 
 
-
-
-
     }
 }

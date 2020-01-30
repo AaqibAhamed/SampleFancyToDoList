@@ -43,14 +43,14 @@ namespace SampleFancyToDoList.Domain
         }
 
         //add an repeating or reoccuring task to list
-        public void AddReOccuringTask(ToDoListItem toDoListItem)
+        public void AddReOccuringTask(ToDoListItem toDoListItem, RepeatingTask repeatingTask)
         {
             if (toDoListItem is null)
             {
                 throw new ArgumentNullException(nameof(toDoListItem));
             }
 
-            RepeatingTask repeatingTask = new RepeatingTask();
+            
             if (repeatingTask.IsReOccuring == true)
             {
                 items.Add(toDoListItem);// #@ this can be merge with add item of to do list  
@@ -58,31 +58,22 @@ namespace SampleFancyToDoList.Domain
 
         }
 
-        public void AddSubTask(ToDoListItem toDoListItem)
-        {
+        //public void AddSubTask(ToDoListItem toDoListItem ,SubTaskToDoList subTask, ToDoList toDoList,CompletedTasksList completedTasksList)
+        //{
 
-            if (toDoListItem is null)
-            {
-                throw new ArgumentNullException(nameof(toDoListItem));
-            }
+        //    if (toDoListItem is null)
+        //    {
+        //        throw new ArgumentNullException(nameof(toDoListItem));
+        //    }
 
-
-            SubTaskToDoList subTask = new SubTaskToDoList();
-
-            if (subTask.HasSubTask == true)
-            {
-                items.Add(subTask);
-            }
-
-
-
-
-
-        }
-
-
-
-
+        //    if (subTask.HasSubTask == true)
+        //    {
+        //        toDoList.AddItem(toDoListItem);
+        //        toDoList.RemoveItem(toDoListItem);
+        //        toDoList.GetAllTasks();
+             
+        //    }
+        //}
 
     }
 }
