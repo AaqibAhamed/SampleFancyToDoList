@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SampleFancyToDoList.Domain
 {
@@ -23,6 +22,7 @@ namespace SampleFancyToDoList.Domain
             }
 
             items.Add(toDoListItem);
+
         }
 
         //return all to do items as a list with CRUD-All unfinished tasks 
@@ -58,14 +58,28 @@ namespace SampleFancyToDoList.Domain
 
         }
 
-        //public IEnumerable<ToDoListItem> TaskOfTheDay(ToDoListItem toDoListItem)
-        //{
-        //    ToDoList toDoList = new ToDoList();
-        //    if(toDoListItem.DueDate == DateTime.Today)
-        //    {
-        //        return
-        //    }
-        //}
+        public void AddSubTask(ToDoListItem toDoListItem)
+        {
+
+            if (toDoListItem is null)
+            {
+                throw new ArgumentNullException(nameof(toDoListItem));
+            }
+
+
+            SubTaskToDoList subTask = new SubTaskToDoList();
+
+            if (subTask.HasSubTask == true)
+            {
+                items.Add(subTask);
+            }
+
+
+
+
+
+        }
+
 
 
 

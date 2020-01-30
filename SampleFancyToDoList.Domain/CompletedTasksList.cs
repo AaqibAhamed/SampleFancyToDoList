@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SampleFancyToDoList.Domain
 {
-    class CompletedTasksList
+    public class CompletedTasksList
     {
         private List<ToDoListItem> tasks;
 
@@ -14,7 +14,7 @@ namespace SampleFancyToDoList.Domain
             tasks = new List<ToDoListItem>();
 
         }
-      
+
 
         //Add item to completed item list
         public void AddToCompleted(ToDoListItem toDoListItem)
@@ -28,6 +28,8 @@ namespace SampleFancyToDoList.Domain
             {
                 tasks.Add(toDoListItem);
             }
+
+
         }
 
         //add an repeating task as completed
@@ -44,7 +46,7 @@ namespace SampleFancyToDoList.Domain
             }
             RepeatingTask repeatingTask = new RepeatingTask();
 
-            if (repeatingTask.EndTime >= DateTime.Now)
+            if (repeatingTask.EndTime <= DateTime.Now)
             {
                 tasks.Remove(toDoListItem);//task remove from completed
                 ToDoList toDoList = new ToDoList();

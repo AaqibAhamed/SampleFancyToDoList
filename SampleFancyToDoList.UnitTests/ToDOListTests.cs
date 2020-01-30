@@ -1,8 +1,6 @@
 ﻿using SampleFancyToDoList.Domain;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace SampleFancyToDoList.UnitTests
@@ -19,14 +17,13 @@ namespace SampleFancyToDoList.UnitTests
 
             toDOList.AddItem(itemToAdd);
 
-            var result = toDOList.GetAllItem();
+            var result = toDOList.GetAllTasks();
 
             Assert.Single(result);
 
             var actualItem = result.ElementAt(0);
 
             Assert.Equal(itemToAdd, actualItem);
-
 
         }
 
@@ -36,15 +33,51 @@ namespace SampleFancyToDoList.UnitTests
             ToDoList toDOList = new ToDoList();
 
 
-            Assert.ThrowsAny<Exception>( () => toDOList.AddItem(null));
+            Assert.ThrowsAny<Exception>(() => toDOList.AddItem(null));
         }
 
         [Fact]
         public void CheckItemRemoved()
         {
+            ToDoList toDoList = new ToDoList();
+
+            ToDoListItem itemToRemove = new ToDoListItem();
+
+            ToDoListItem toDoListItem2 = new ToDoListItem();
+
+             toDoList.AddItem(toDoListItem2);
+
+             toDoList.AddItem(itemToRemove);
+
+            toDoList.RemoveItem(itemToRemove);
+
+            var result = toDoList.GetAllTasks().Count();
+
+            Assert.True(result == 0);
 
         }
-            
+
+        [Fact]
+        public void CheckReOccuring()
+        {
+            ToDoList toDoList = new ToDoList();
+
+            ToDoListItem toDoListItem = new ToDoListItem();
+
+            toDoList.AddReOccuringTask(toDoListItem);
+
+        }
+
+        [Fact]
+        public void CheckCompletedTask()
+        {
+            CompletedTasksList completedTasksList = new CompletedTasksList();
+
+            ToDoListItem toDoListItem = new ToDoListItem();
+
+            completedTasksList.AddToCompleted(toDoListItem);
+
+        }
 
     }
 }
